@@ -42,7 +42,7 @@ func (a AppBuilder) LoadConfig() app_builder.Builder {
 
 func (a AppBuilder) InitRepositories() app_builder.Builder {
 	a.engine.repositories.UpdateTimeline = update_timeline.NewService(update_timeline.Dependencies{
-		Client: a.engine.simplify.RestClients["test"],
+		Client: a.engine.simplify.RestClients["timeline"],
 		Log:    a.engine.simplify.Log,
 	})
 	a.engine.repositories.AddFollow = add_follow.NewService(add_follow.Dependencies{

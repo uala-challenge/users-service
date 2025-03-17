@@ -15,7 +15,7 @@ rest:
   - timeline:
       timeout: 5
       enableLogging: true
-      baseURL: "http://localhost:8084"
+      baseURL: "http://localhost:8085"
       withRetry: true
       retryCount: 3
       retryWaitTime: 500
