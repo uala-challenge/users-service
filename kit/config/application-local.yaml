@@ -1,0 +1,29 @@
+# Default properties file for global environment
+router:
+  port: '8086'
+  name: 'tweets-service'
+
+log:
+  level: debug
+  path: '/tweets-service.log'
+
+aws:
+  region: 'us-east-1'
+
+
+rest:
+  - timeline:
+      timeout: 5
+      enableLogging: true
+      baseURL: "http://localhost:8084"
+      withRetry: true
+      retryCount: 3
+      retryWaitTime: 500
+      retryMaxWaitTime: 5
+
+
+redis:
+  host: 'localhost'
+  port: 6379
+  db: 0
+  timeout: 5

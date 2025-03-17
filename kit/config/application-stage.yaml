@@ -1,0 +1,27 @@
+# Properties file for docker test
+router:
+  port: '8080'
+  name: 'tweets-service'
+
+log:
+  level: debug
+  path: '/tweets-service.log'
+
+aws:
+  region: 'us-east-1'
+
+redis:
+  host: 'redis'
+  port: 6379
+  db: 0
+  timeout: 5
+
+rest:
+  - timeline:
+      timeout: 5
+      enableLogging: true
+      baseURL: "http://timeline-service:8080"
+      withRetry: true
+      retryCount: 3
+      retryWaitTime: 500
+      retryMaxWaitTime: 5
