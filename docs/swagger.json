@@ -1,0 +1,77 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/follow/{user_id}": {
+            "patch": {
+                "description": "Updates the timeline of a user when they are followed",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Timeline",
+                    "Follow"
+                ],
+                "summary": "Update user timeline and add follower",
+                "parameters": [
+                    {
+                        "description": "query params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/kit.Request"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Timeline updated successfully",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "kit.Request": {
+            "type": "object",
+            "required": [
+                "follower_id"
+            ],
+            "properties": {
+                "follower_id": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

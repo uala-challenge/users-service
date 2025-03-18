@@ -25,6 +25,18 @@ func NewService(d Dependencies) Service {
 	}
 }
 
+// Init godoc
+// @Summary Update user timeline and add follower
+// @Description Updates the timeline of a user when they are followed
+// @Tags Timeline
+// @Tags Follow
+// @Accept json
+// @Produce json
+// @Param request body kit.Request true "query params"
+// @Success 200 {object} map[string]string "Timeline updated successfully"
+// @Failure 400 {object} map[string]string "Bad request"
+// @Failure 500 {object} map[string]string "Internal server error"
+// @Router /follow/{user_id} [patch]
 func (s service) Init(w http.ResponseWriter, r *http.Request) {
 	userID := chi.URLParam(r, "user_id")
 	body, err := io.ReadAll(r.Body)

@@ -1,0 +1,49 @@
+definitions:
+  kit.Request:
+    properties:
+      follower_id:
+        type: string
+    required:
+    - follower_id
+    type: object
+info:
+  contact: {}
+paths:
+  /follow/{user_id}:
+    patch:
+      consumes:
+      - application/json
+      description: Updates the timeline of a user when they are followed
+      parameters:
+      - description: query params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/kit.Request'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Timeline updated successfully
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal server error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Update user timeline and add follower
+      tags:
+      - Timeline
+      - Follow
+swagger: "2.0"
